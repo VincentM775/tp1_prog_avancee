@@ -91,7 +91,7 @@ class IntegrationMetierTest {
         );
 
         // ÉTAPE 3 : Publication
-        Annonce published = annonceService.publier(created.getId());
+        Annonce published = annonceService.publier(created.getId(), testUser.getId());
         assertEquals(AnnonceStatus.PUBLISHED, published.getStatus(), "Statut = PUBLISHED après publication");
 
         // ÉTAPE 4 : L'annonce DOIT apparaître dans les recherches
@@ -104,7 +104,7 @@ class IntegrationMetierTest {
         );
 
         // ÉTAPE 5 : Archivage
-        Annonce archived = annonceService.archiver(created.getId());
+        Annonce archived = annonceService.archiver(created.getId(), testUser.getId());
         assertEquals(AnnonceStatus.ARCHIVED, archived.getStatus(), "Statut = ARCHIVED après archivage");
 
         // ÉTAPE 6 : L'annonce ne doit plus apparaître dans les recherches publiées
@@ -164,7 +164,7 @@ class IntegrationMetierTest {
         for (int i = 0; i < 5; i++) {
             Annonce a = new Annonce("N1 Test " + i + "_" + suffix, "Desc " + i, "Addr", "n1@test.com");
             Annonce created = annonceService.creer(a, testUser.getId(), testCategory.getId());
-            annonceService.publier(created.getId());
+            annonceService.publier(created.getId(), testUser.getId());
         }
 
         // Récupérer la liste des annonces publiées
@@ -196,17 +196,17 @@ class IntegrationMetierTest {
         // Créer, publier, archiver
         Annonce annonce = new Annonce("Archive Test " + suffix, "Desc", "Addr", "archive@test.com");
         Annonce created = annonceService.creer(annonce, testUser.getId(), null);
-        annonceService.publier(created.getId());
-        annonceService.archiver(created.getId());
+        annonceService.publier(created.getId(), testUser.getId());
+        annonceService.archiver(created.getId(), testUser.getId());
 
         // Impossible de re-publier
-        assertThrows(BusinessException.class, () -> {
-            annonceService.publier(created.getId());
+        assertThrows(ConflictException.class, () -> {
+            annonceService.publier(created.getId(), testUser.getId());
         }, "Une annonce archivée ne peut pas être re-publiée");
 
         // Impossible de modifier
-        assertThrows(BusinessException.class, () -> {
-            annonceService.modifier(created.getId(), "Nouveau titre", null, null, null, null);
+        assertThrows(ConflictException.class, () -> {
+            annonceService.modifier(created.getId(), "Nouveau titre", null, null, null, null, testUser.getId());
         }, "Une annonce archivée ne peut pas être modifiée");
     }
 
@@ -221,7 +221,7 @@ class IntegrationMetierTest {
         String suffix = uniqueSuffix();
         Annonce annonce = new Annonce("Count Test " + suffix, "Desc", "Addr", "count@test.com");
         Annonce created = annonceService.creer(annonce, testUser.getId(), null);
-        annonceService.publier(created.getId());
+        annonceService.publier(created.getId(), testUser.getId());
 
         // Compter après
         long countAfter = annonceService.listerPubliees(0, 1).getTotalElements();
@@ -229,7 +229,7 @@ class IntegrationMetierTest {
         assertEquals(countBefore + 1, countAfter, "Le compteur doit augmenter de 1");
 
         // Archiver
-        annonceService.archiver(created.getId());
+        annonceService.archiver(created.getId(), testUser.getId());
 
         // Compter après archivage
         long countAfterArchive = annonceService.listerPubliees(0, 1).getTotalElements();

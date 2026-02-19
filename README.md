@@ -1,15 +1,17 @@
-# MasterAnnonce - TP JPA/Hibernate
+# MasterAnnonce - Backend API sécurisé
 
-Application web de gestion d'annonces développée dans le cadre du TP Dev Avancé #2 (BUT 3).
+Application web et API REST de gestion d'annonces développée dans le cadre du TP Dev Avancé (BUT 3).
 
 ## Table des matières
 
 1. [Architecture du projet](#architecture-du-projet)
-2. [Technologies utilisées](#technologies-utilisées)
-3. [Installation et configuration](#installation-et-configuration)
-4. [Problèmes rencontrés et solutions](#problèmes-rencontrés-et-solutions)
-5. [Tests](#tests)
-6. [Fonctionnalités](#fonctionnalités)
+2. [API REST](#api-rest)
+3. [Authentification](#authentification)
+4. [Technologies utilisées](#technologies-utilisées)
+5. [Installation et configuration](#installation-et-configuration)
+6. [Problèmes rencontrés et solutions](#problèmes-rencontrés-et-solutions)
+7. [Tests](#tests)
+8. [Fonctionnalités](#fonctionnalités)
 
 ---
 
@@ -77,16 +79,16 @@ Le projet suit une **architecture en couches** (Layered Architecture) :
 ```
 src/main/java/org/univ_paris8/.../demo1/
 ├── entity/                  # Entités JPA
-│   ├── Annonce.java         # Entité principale avec relations
+│   ├── Annonce.java         # Entité principale avec relations + @Version
 │   ├── AnnonceStatus.java   # Enum (DRAFT, PUBLISHED, ARCHIVED)
 │   ├── User.java            # Utilisateur
 │   └── Category.java        # Catégorie d'annonces
 │
 ├── persistence/             # Gestion de la persistance
-│   ├── EntityManagerUtil.java    # Singleton Factory
+│   ├── EntityManagerUtil.java    # Singleton Factory (configurable pour tests)
 │   └── PersistenceListener.java  # Lifecycle listener
 │
-├── repository/              # Couche d'accès aux données
+├── repository/              # Couche accès données
 │   ├── GenericRepository.java    # Interface CRUD
 │   ├── AbstractRepository.java   # Implémentation générique
 │   ├── AnnonceRepository.java    # Requêtes spécifiques annonces
@@ -98,29 +100,85 @@ src/main/java/org/univ_paris8/.../demo1/
 │   ├── AnnonceService.java       # Règles métier annonces
 │   ├── UserService.java
 │   ├── CategoryService.java
+│   ├── TokenService.java         # Gestion tokens stateless (singleton)
 │   ├── PagedResult.java          # Wrapper pagination
-│   ├── ServiceException.java
-│   ├── EntityNotFoundException.java
-│   └── BusinessException.java
+│   ├── BusinessException.java    # Erreur métier (400)
+│   ├── EntityNotFoundException.java  # Ressource non trouvée (404)
+│   ├── ConflictException.java    # Conflit d'état (409)
+│   └── ForbiddenException.java   # Accès interdit (403)
 │
-└── web/                     # Couche web
+└── web/
+    ├── api/                      # API REST (JAX-RS / Jersey)
+    │   ├── RestApplication.java  # @ApplicationPath("/api")
+    │   ├── dto/                  # DTOs (AnnonceDTO, CreateAnnonceDTO, LoginDTO, ApiError...)
+    │   ├── filter/               # AuthenticationFilter (token Bearer)
+    │   ├── mapper/               # ExceptionMappers (400, 401, 403, 404, 409, 500)
+    │   └── resource/             # Ressources REST (AnnonceResource, AuthResource)
     ├── filter/
-    │   └── AuthFilter.java       # Protection des routes
-    ├── servlet/
-    │   ├── LoginServlet.java
-    │   ├── LogoutServlet.java
-    │   ├── RegisterServlet.java
-    │   ├── AnnonceListServlet.java
-    │   ├── AnnonceDetailServlet.java
-    │   ├── AnnonceCreateServlet.java
-    │   ├── AnnonceEditServlet.java
-    │   ├── AnnonceActionServlet.java
-    │   └── MesAnnoncesServlet.java
-    └── validation/
-        ├── ValidationResult.java  # Stockage erreurs par champ
-        ├── FormValidator.java     # Méthodes de validation
-        └── FormData.java          # Conservation valeurs saisies
+    │   └── AuthFilter.java       # Protection des routes (Servlets)
+    ├── servlet/                  # Servlets (couche web classique)
+    └── validation/               # Validation formulaires
 ```
+
+---
+
+## API REST
+
+Point d'entrée : `@ApplicationPath("/api")` via `RestApplication.java`
+
+### Endpoints publics (sans authentification)
+
+| Méthode | URL                       | Description                       |
+|---------|---------------------------|-----------------------------------|
+| GET     | `/api/helloWorld`         | Endpoint de test                  |
+| GET     | `/api/params`             | Test QueryParams                  |
+| GET     | `/api/params/{nom}/{age}` | Test PathParams                   |
+| GET     | `/api/annonces`           | Lister les annonces publiées (paginé) |
+| GET     | `/api/annonces/{id}`      | Détail d'une annonce              |
+| POST    | `/api/auth/login`         | Authentification (retourne token) |
+
+### Endpoints protégés (token Bearer requis)
+
+| Méthode | URL                           | Description                          |
+|---------|-------------------------------|--------------------------------------|
+| POST    | `/api/annonces`               | Créer une annonce (statut DRAFT)     |
+| PUT     | `/api/annonces/{id}`          | Modifier (DRAFT uniquement, auteur)  |
+| DELETE  | `/api/annonces/{id}`          | Supprimer (ARCHIVED uniquement)      |
+| POST    | `/api/annonces/{id}/publier`  | Publier une annonce                  |
+| POST    | `/api/annonces/{id}/archiver` | Archiver une annonce                 |
+| POST    | `/api/auth/logout`            | Révoquer le token                    |
+
+### Gestion des erreurs (format normalisé ApiError)
+
+```json
+{
+  "status": 400,
+  "error": "Bad Request",
+  "message": "Description de l'erreur",
+  "timestamp": "2025-01-01T12:00:00",
+  "fieldErrors": [{"field": "title", "message": "ne doit pas être vide"}]
+}
+```
+
+Codes HTTP : 200, 201, 204, 400, 401, 403, 404, 409, 500
+
+---
+
+## Authentification
+
+Authentification stateless par token Bearer (UUID) :
+
+1. **Login** : `POST /api/auth/login` avec `{"username": "...", "password": "..."}` retourne un token
+2. **Utilisation** : Header `Authorization: Bearer <token>` sur les endpoints protégés
+3. **Logout** : `POST /api/auth/logout` pour révoquer le token
+
+### Règles métier sécurisées
+
+- **Cycle de vie** : DRAFT -> PUBLISHED -> ARCHIVED
+- Seul l'**auteur** peut modifier, publier, archiver ou supprimer ses annonces
+- Une annonce **PUBLISHED** ne peut plus être modifiée
+- Une annonce doit être **ARCHIVED** avant suppression
+- Contrôle de concurrence optimiste via `@Version`
 
 ---
 
@@ -128,13 +186,19 @@ src/main/java/org/univ_paris8/.../demo1/
 
 | Technologie | Version | Rôle |
 |-------------|---------|------|
-| Java | 17+ | Langage |
-| Jakarta EE | 10 | API Web (Servlets, JSP, JSTL) |
-| JPA / Hibernate | 6.x | ORM / Persistance |
-| PostgreSQL | 15+ | Base de données |
-| Maven | 3.9+ | Build & Dépendances |
+| Java | 18 | Langage |
+| Jakarta EE | 10 | API Web (Servlets, JSP, JAX-RS) |
+| JAX-RS / Jersey | 3.1.5 | Framework REST |
+| JPA / Hibernate | 6.4 | ORM / Persistance |
+| PostgreSQL | 15+ | Base de données production |
+| H2 | 2.2.224 | Base de données tests (in-memory) |
+| SLF4J + Logback | 2.0 / 1.5 | Logging structuré |
+| Bean Validation | 3.0 | Validation des entrées |
+| Swagger / OpenAPI | 2.2.20 | Documentation API |
+| JUnit 5 + Mockito | 5.10+ | Tests unitaires |
+| Jersey Test Framework | 3.1.5 | Tests REST intégration |
+| Maven (Surefire + Failsafe) | 3.2.5 | Build, tests unitaires / intégration |
 | Tailwind CSS | 3.x (CDN) | UI moderne |
-| JUnit 5 | 5.10+ | Tests unitaires |
 
 ---
 
@@ -142,8 +206,8 @@ src/main/java/org/univ_paris8/.../demo1/
 
 ### Prérequis
 
-1. JDK 17+
-2. Maven 3.9+
+1. JDK 18+
+2. Maven 3.9+ (ou utiliser le wrapper `./mvnw`)
 3. PostgreSQL 15+
 4. Tomcat 10+ (ou serveur compatible Jakarta EE 10)
 
@@ -162,10 +226,16 @@ GRANT ALL PRIVILEGES ON DATABASE masterannonce TO masteruser;
 
 ```bash
 # Compilation
-mvn clean package
+./mvnw clean compile
 
-# Lancer les tests
-mvn test
+# Tests unitaires uniquement (*Test.java via Surefire)
+./mvnw test
+
+# Tests d'intégration (*IT.java via Failsafe)
+./mvnw verify
+
+# Package WAR
+./mvnw clean package
 
 # Le WAR est généré dans target/demo1-1.0-SNAPSHOT.war
 ```
@@ -174,133 +244,123 @@ mvn test
 
 ## Problèmes rencontrés et solutions
 
-### 1. LazyInitializationException - Accès aux relations hors transaction
+### 1. LazyInitializationException sur toutes les méthodes d'écriture (modifier, publier, archiver)
 
-**Problème :** En affichant une annonce dans la JSP, l'accès à `annonce.category.label` provoquait une `LazyInitializationException: could not initialize proxy - no Session`. Les relations `@ManyToOne(fetch = LAZY)` n'étaient pas chargées car l'`EntityManager` était déjà fermé à la sortie du service.
+**Problème :** Les endpoints PUT, POST `/publier` et POST `/archiver` renvoyaient systématiquement une erreur 500 en production. Après investigation, le `AnnonceDTO.fromEntity()` tentait d'accéder à `annonce.getAuthor().getUsername()` et `annonce.getCategory().getLabel()` alors que l'EntityManager était déjà fermé. L'entité retournée par `entityManager.find()` dans la méthode `modifier()` ne chargeait pas les relations `@ManyToOne(fetch = LAZY)`. Seule la méthode `trouverParId()` utilisait un `JOIN FETCH`, mais les méthodes d'écriture (`modifier`, `publier`, `archiver`) utilisaient un simple `find()`, ce qui provoquait une `LazyInitializationException` au moment de la sérialisation JSON.
 
-**Solution :** `JOIN FETCH` dans les requêtes JPQL pour charger les relations avant la fermeture de l'EntityManager :
+**Solution :** Remplacer `entityManager.find(Annonce.class, id)` par une requête JPQL avec `JOIN FETCH` dans **toutes** les méthodes qui retournent une entité au contrôleur REST :
 ```java
-public Optional<Annonce> trouverParId(Long id) {
-    return em.createQuery(
-        "SELECT a FROM Annonce a " +
-        "LEFT JOIN FETCH a.category " +
-        "LEFT JOIN FETCH a.author " +
-        "WHERE a.id = :id",
-        Annonce.class
-    ).setParameter("id", id)
-     .getResultStream()
-     .findFirst();
+Annonce annonce = entityManager.createQuery(
+    "SELECT a FROM Annonce a LEFT JOIN FETCH a.author LEFT JOIN FETCH a.category WHERE a.id = :id",
+    Annonce.class
+).setParameter("id", id).getResultStream().findFirst().orElse(null);
+```
+La leçon : dès qu'une entité doit être convertie en DTO après la fermeture de l'EM, il faut un `JOIN FETCH`. Le `find()` ne suffit pas.
+
+---
+
+### 2. Problème N+1 Select sur les listes paginées
+
+**Problème :** En listant les annonces publiées, Hibernate générait 1 requête pour les annonces + N requêtes pour charger chaque catégorie + N requêtes pour chaque auteur. Avec `hibernate.show_sql=true`, on observait parfois 15+ requêtes SQL pour un simple GET `/api/annonces?page=0&size=5`. Le temps de réponse augmentait linéairement avec le nombre d'annonces.
+
+**Solution :** Ajout de `LEFT JOIN FETCH a.category LEFT JOIN FETCH a.author` dans toutes les requêtes de listing (listerPubliees, listerParAuteur, rechercher). Résultat : une seule requête SQL, quel que soit le nombre de résultats.
+
+---
+
+### 3. Conflits de clés primaires avec H2 en mode test
+
+**Problème :** Les tests d'intégration (`AnnonceRepositoryIT`) échouaient avec `Unique index or primary key violation` lors de l'insertion de nouvelles annonces. Le fichier `test-data.sql` insérait des données avec des IDs explicites (1 à 7), mais la stratégie `@GeneratedValue(strategy = GenerationType.IDENTITY)` avec H2 démarrait son compteur auto-incrémenté à 1. Le premier `save()` dans un test générait donc l'ID 1, qui existait déjà.
+
+**Solution :** Ajouter à la fin de `test-data.sql` des instructions pour repositionner les séquences d'auto-incrémentation après le dernier ID utilisé :
+```sql
+ALTER TABLE users ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE categories ALTER COLUMN id RESTART WITH 100;
+ALTER TABLE annonces ALTER COLUMN id RESTART WITH 100;
+```
+
+---
+
+### 4. Pagination non déterministe - Doublons entre les pages
+
+**Problème :** Le test `testPaginationNoDuplicates` échouait de manière intermittente : un même ID apparaissait dans la page 0 et la page 1. La cause : toutes les annonces du jeu de test avaient le même `CURRENT_TIMESTAMP` en `date_creation`, et le tri `ORDER BY a.date DESC` ne garantissait aucun ordre entre les lignes de même date. La base de données renvoyait les résultats dans un ordre arbitraire qui pouvait changer entre deux requêtes.
+
+**Solution :** Ajouter un critère de tri secondaire déterministe (l'ID, qui est unique et immuable) :
+```java
+ORDER BY a.date DESC, a.id DESC
+```
+
+---
+
+### 5. Injection de mocks impossible dans AnnonceResource (tests unitaires)
+
+**Problème :** `AnnonceResourceTest` utilisait `@InjectMocks` avec Mockito, mais le champ `annonceService` dans `AnnonceResource` était déclaré `private final AnnonceService annonceService = new AnnonceService()`. Mockito ne pouvait pas remplacer un champ `final` initialisé inline. Résultat : les tests appelaient le vrai service (qui tentait de se connecter à la base) au lieu du mock, provoquant des `ForbiddenException` et des échecs systématiques.
+
+**Solution :** Ajouter un constructeur package-private qui accepte le service en paramètre, et rendre le champ non-final :
+```java
+private AnnonceService annonceService;
+
+public AnnonceResource() {
+    this.annonceService = new AnnonceService();
+}
+
+AnnonceResource(AnnonceService annonceService) {
+    this.annonceService = annonceService;
 }
 ```
+Le test utilise le constructeur avec paramètre pour injecter le mock, tandis que JAX-RS utilise le constructeur par défaut en production. Le `@Context ContainerRequestContext` est injecté via réflexion dans le test.
 
 ---
 
-### 2. Problème N+1 Select - Requêtes SQL excessives sur les listes
-
-**Problème :** En listant les annonces, Hibernate générait 1 requête pour les annonces puis N requêtes pour charger chaque catégorie et auteur un par un. Avec `hibernate.show_sql=true` on voyait des dizaines de SELECT défiler dans la console pour une simple liste.
-
-**Solution :** Même approche que le problème 1, ajout de `JOIN FETCH` dans les requêtes de listing :
-```java
-SELECT a FROM Annonce a
-LEFT JOIN FETCH a.category
-LEFT JOIN FETCH a.author
-WHERE a.status = :status
-```
-
----
-
-### 3. Detached Entity - Entité détachée passée à persist
+### 6. Detached Entity - Entité détachée passée à persist
 
 **Problème :** On récupérait l'auteur et la catégorie dans une première transaction, puis on essayait de les associer à l'annonce dans une seconde. Hibernate renvoyait `PersistenceException: detached entity passed to persist` parce que les entités n'étaient plus rattachées à un EntityManager actif.
 
 **Solution :** Tout faire dans la même transaction pour que les entités restent managées :
 ```java
-public Annonce creer(Annonce annonce, Long authorId, Long categoryId) {
-    EntityManager em = EntityManagerUtil.getEntityManager();
-    return executeInTransaction(em, () -> {
-        User author = em.find(User.class, authorId);
-        Category category = em.find(Category.class, categoryId);
-        annonce.setAuthor(author);
-        annonce.setCategory(category);
-        em.persist(annonce);
-        return annonce;
-    });
+return executeInTransaction(em, entityManager -> {
+    User author = entityManager.find(User.class, authorId);
+    Category category = entityManager.find(Category.class, categoryId);
+    annonce.setAuthor(author);
+    annonce.setCategory(category);
+    entityManager.persist(annonce);
+    return annonce;
+});
+```
+
+---
+
+### 7. Transaction non active en mode RESOURCE_LOCAL
+
+**Problème :** Les `em.persist()` effectués sans `tx.begin()` / `tx.commit()` ne provoquaient aucune erreur, mais les données n'étaient jamais écrites en base. En mode `RESOURCE_LOCAL` (hors serveur d'application), JPA ne démarre pas de transaction automatiquement. C'est un bug silencieux très difficile à diagnostiquer.
+
+**Solution :** Centralisation du begin/commit/rollback dans `AbstractService.executeInTransaction()` pour ne jamais oublier. Pattern `try-catch-finally` avec rollback automatique en cas d'exception et fermeture garantie de l'EntityManager.
+
+---
+
+### 8. Fuite de connexions - EntityManager non fermé
+
+**Problème :** Certains chemins d'exécution (notamment en cas d'exception) ne fermaient pas l'EntityManager. Le pool de connexions Hibernate (5 par défaut) s'épuisait après quelques requêtes, bloquant complètement l'application sans message d'erreur explicite.
+
+**Solution :** Bloc `try-finally` systématique dans chaque méthode de service et de repository :
+```java
+EntityManager em = getEntityManager();
+try {
+    // ... opérations
+} finally {
+    em.close();
 }
 ```
 
 ---
 
-### 4. Transaction non active - Oubli du begin/commit
+### 9. Incompatibilité de version Java entre compilation et exécution des tests
 
-**Problème :** Au début, on faisait des `em.persist()` sans ouvrir de transaction. En mode `RESOURCE_LOCAL`, JPA ne démarre pas de transaction automatiquement. Résultat : les entités n'étaient jamais sauvegardées en base, sans aucune erreur visible, ce qui était difficile à débugger.
+**Problème :** Le pom.xml ciblait Java 22 (`maven.compiler.source/target = 22`) mais le JDK installé localement était Java 18. La compilation Maven fonctionnait, mais le lanceur de tests Surefire échouait avec : `has been compiled by a more recent version of the Java Runtime (class file version 66.0), this version only recognizes class file versions up to 62.0`.
 
-**Solution :** Centralisation du begin/commit/rollback dans `AbstractService` pour ne plus jamais oublier :
-```java
-protected <T> T executeInTransaction(EntityManager em, TransactionalOperation<T> operation) {
-    EntityTransaction tx = em.getTransaction();
-    try {
-        tx.begin();
-        T result = operation.execute();
-        tx.commit();
-        return result;
-    } catch (Exception e) {
-        if (tx.isActive()) tx.rollback();
-        throw e;
-    } finally {
-        em.close();
-    }
-}
-```
-
----
-
-### 5. Mapping Enum - Statut stocké en ORDINAL par défaut
-
-**Problème :** Sans annotation, Hibernate stockait le statut (`DRAFT`, `PUBLISHED`, `ARCHIVED`) comme un entier (0, 1, 2). En regardant la base on ne comprenait pas à quoi correspondaient les valeurs, et si on ajoutait un nouveau statut au milieu de l'enum ça décalait tout.
-
-**Solution :** `@Enumerated(EnumType.STRING)` pour stocker le texte directement :
-```java
-@Enumerated(EnumType.STRING)
-@Column(nullable = false)
-private AnnonceStatus status;
-```
-En base on voit maintenant `'DRAFT'`, `'PUBLISHED'`, `'ARCHIVED'` directement.
-
----
-
-### 6. Synchronisation bidirectionnelle - Incohérence des relations
-
-**Problème :** On faisait `annonce.setAuthor(user)` sans ajouter l'annonce dans `user.getAnnonces()`. En base ça marchait, mais dans les tests quand on vérifiait `user.getAnnonces().size()` juste après, la liste était vide parce que le cache Hibernate n'était pas synchronisé.
-
-**Solution :** Méthodes utilitaires pour gérer les deux côtés de la relation :
-```java
-public void addAnnonce(Annonce annonce) {
-    annonces.add(annonce);
-    annonce.setAuthor(this);
-}
-
-public void removeAnnonce(Annonce annonce) {
-    annonces.remove(annonce);
-    annonce.setAuthor(null);
-}
-```
-
----
-
-### 7. Fuite de connexions - EntityManager non fermé
-
-**Problème :** Certains chemins d'exécution (surtout en cas d'exception) ne fermaient pas l'`EntityManager`. Au bout de quelques requêtes le pool de connexions (5 max) était épuisé et l'application se bloquait.
-
-**Solution :** `try-finally` systématique dans les repositories pour garantir la fermeture :
-```java
-public Optional<T> findById(ID id) {
-    EntityManager em = EntityManagerUtil.getEntityManager();
-    try {
-        return Optional.ofNullable(em.find(entityClass, id));
-    } finally {
-        em.close();
-    }
-}
+**Solution :** Aligner la version dans `pom.xml` avec le JDK réellement installé :
+```xml
+<maven.compiler.target>18</maven.compiler.target>
+<maven.compiler.source>18</maven.compiler.source>
 ```
 
 ---
@@ -415,6 +475,40 @@ void testUnauthenticatedUserRedirected() throws Exception {
 }
 ```
 
+### Niveau 5 - Tests REST Intégration (TP3)
+
+**Fichier :** `AnnonceResourceIT.java`
+
+- Tests REST complets avec Jersey Test Framework + H2 in-memory
+- Vérification des codes HTTP ET des payloads JSON
+- Tests de sécurité (401 sans token, 401 token invalide)
+- Tests des règles métier via API (403 non-auteur, 409 conflit d'état)
+
+```java
+@Test
+void testCreateWithoutToken() {
+    Response response = target("/annonces").request()
+            .post(Entity.entity(body, MediaType.APPLICATION_JSON));
+    assertEquals(401, response.getStatus());
+}
+```
+
+### Niveau 6 - Tests unitaires DTO et Resource (TP3)
+
+| Fichier | Description |
+|---------|-------------|
+| `TokenServiceTest.java` | Génération, validation, révocation de tokens |
+| `AnnonceDTOTest.java` | Mapping Entity ↔ DTO, Builder pattern |
+| `AnnonceResourceTest.java` | Tests unitaires Resource avec Mockito |
+
+### Niveau 7 - Test de charge (TP3)
+
+**Fichier :** `LoadTestIT.java`
+
+- 50 requêtes GET concurrentes (10 threads)
+- Vérification que 90%+ des requêtes réussissent
+- Mesure du débit (req/s) et de la durée totale
+
 ### Fichiers de test supplémentaires
 
 | Fichier | Description |
@@ -422,19 +516,35 @@ void testUnauthenticatedUserRedirected() throws Exception {
 | `EntityManagerUtilTest.java` | Configuration JPA |
 | `EntityMappingTest.java` | Mappings d'entités |
 | `AnnonceServiceTest.java` | Règles métier annonces |
+| `AnnonceRepositoryIT.java` | Tests repository H2 (CRUD, pagination) |
 
 ### Exécution des tests
 
 ```bash
-# Tous les tests
-mvn test
+# Tests unitaires uniquement (*Test.java via Surefire)
+./mvnw test
+
+# Tests d'intégration (*IT.java via Failsafe)
+./mvnw verify
 
 # Un test spécifique
-mvn test -Dtest=WebLayerTest
+./mvnw test -Dtest=TokenServiceTest
 
 # Avec rapport détaillé
-mvn test -Dsurefire.reportFormat=plain
+./mvnw test -Dsurefire.reportFormat=plain
 ```
+
+### Logging
+
+Logging structuré avec SLF4J + Logback :
+- Console + fichier rotatif (`logs/masterannonce.log`)
+- Format : `timestamp [thread] LEVEL logger - message`
+- Rotation quotidienne, rétention 30 jours
+- Configuration : `src/main/resources/logback.xml`
+
+### Documentation API
+
+Annotations OpenAPI/Swagger sur tous les endpoints REST (`@Operation`, `@ApiResponse`, `@Tag`).
 
 ---
 

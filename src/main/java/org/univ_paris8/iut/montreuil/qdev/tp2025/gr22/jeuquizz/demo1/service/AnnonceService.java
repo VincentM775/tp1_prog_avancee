@@ -45,18 +45,37 @@ public class AnnonceService extends AbstractService {
         }
     }
 
+    /**
+     * Modifie une annonce.
+     * Règles métier :
+     * - Seul l'auteur peut modifier son annonce (vérification via currentUserId)
+     * - Une annonce PUBLISHED ne peut plus être modifiée
+     * - Une annonce ARCHIVED ne peut plus être modifiée
+     */
     public Annonce modifier(Long id, String title, String description,
-                           String adress, String mail, Long categoryId) {
+                           String adress, String mail, Long categoryId, Long currentUserId) {
         EntityManager em = getEntityManager();
         try {
             return executeInTransaction(em, entityManager -> {
-                Annonce annonce = entityManager.find(Annonce.class, id);
+                Annonce annonce = entityManager.createQuery(
+                    "SELECT a FROM Annonce a LEFT JOIN FETCH a.author LEFT JOIN FETCH a.category WHERE a.id = :id",
+                    Annonce.class
+                ).setParameter("id", id).getResultStream().findFirst().orElse(null);
+
                 if (annonce == null) {
                     throw new EntityNotFoundException("Annonce", id);
                 }
 
+                // Seul l'auteur peut modifier
+                verifierAuteur(annonce, currentUserId);
+
+                // Une annonce PUBLISHED ne peut plus être modifiée
+                if (annonce.getStatus() == AnnonceStatus.PUBLISHED) {
+                    throw new ConflictException("Impossible de modifier une annonce publiée");
+                }
+
                 if (annonce.getStatus() == AnnonceStatus.ARCHIVED) {
-                    throw new BusinessException("Impossible de modifier une annonce archivée");
+                    throw new ConflictException("Impossible de modifier une annonce archivée");
                 }
 
                 if (title != null) {
@@ -87,20 +106,26 @@ public class AnnonceService extends AbstractService {
         }
     }
 
-    public Annonce publier(Long id) {
+    public Annonce publier(Long id, Long currentUserId) {
         EntityManager em = getEntityManager();
         try {
             return executeInTransaction(em, entityManager -> {
-                Annonce annonce = entityManager.find(Annonce.class, id);
+                Annonce annonce = entityManager.createQuery(
+                    "SELECT a FROM Annonce a LEFT JOIN FETCH a.author LEFT JOIN FETCH a.category WHERE a.id = :id",
+                    Annonce.class
+                ).setParameter("id", id).getResultStream().findFirst().orElse(null);
+
                 if (annonce == null) {
                     throw new EntityNotFoundException("Annonce", id);
                 }
 
+                verifierAuteur(annonce, currentUserId);
+
                 if (annonce.getStatus() == AnnonceStatus.PUBLISHED) {
-                    throw new BusinessException("L'annonce est déjà publiée");
+                    throw new ConflictException("L'annonce est déjà publiée");
                 }
                 if (annonce.getStatus() == AnnonceStatus.ARCHIVED) {
-                    throw new BusinessException("Impossible de publier une annonce archivée");
+                    throw new ConflictException("Impossible de publier une annonce archivée");
                 }
 
                 annonce.setStatus(AnnonceStatus.PUBLISHED);
@@ -111,17 +136,23 @@ public class AnnonceService extends AbstractService {
         }
     }
 
-    public Annonce archiver(Long id) {
+    public Annonce archiver(Long id, Long currentUserId) {
         EntityManager em = getEntityManager();
         try {
             return executeInTransaction(em, entityManager -> {
-                Annonce annonce = entityManager.find(Annonce.class, id);
+                Annonce annonce = entityManager.createQuery(
+                    "SELECT a FROM Annonce a LEFT JOIN FETCH a.author LEFT JOIN FETCH a.category WHERE a.id = :id",
+                    Annonce.class
+                ).setParameter("id", id).getResultStream().findFirst().orElse(null);
+
                 if (annonce == null) {
                     throw new EntityNotFoundException("Annonce", id);
                 }
 
+                verifierAuteur(annonce, currentUserId);
+
                 if (annonce.getStatus() == AnnonceStatus.ARCHIVED) {
-                    throw new BusinessException("L'annonce est déjà archivée");
+                    throw new ConflictException("L'annonce est déjà archivée");
                 }
 
                 annonce.setStatus(AnnonceStatus.ARCHIVED);
@@ -132,13 +163,27 @@ public class AnnonceService extends AbstractService {
         }
     }
 
-    public void supprimer(Long id) {
+    /**
+     * Supprime une annonce.
+     * Règles métier :
+     * - Seul l'auteur peut supprimer son annonce
+     * - L'annonce doit être ARCHIVED avant suppression
+     */
+    public void supprimer(Long id, Long currentUserId) {
         EntityManager em = getEntityManager();
         try {
             executeInTransaction(em, entityManager -> {
                 Annonce annonce = entityManager.find(Annonce.class, id);
                 if (annonce == null) {
                     throw new EntityNotFoundException("Annonce", id);
+                }
+
+                verifierAuteur(annonce, currentUserId);
+
+                if (annonce.getStatus() != AnnonceStatus.ARCHIVED) {
+                    throw new ConflictException(
+                            "L'annonce doit être archivée avant suppression (statut actuel : "
+                            + annonce.getStatus() + ")");
                 }
 
                 entityManager.remove(annonce);
@@ -178,7 +223,7 @@ public class AnnonceService extends AbstractService {
                 "SELECT a FROM Annonce a " +
                 "LEFT JOIN FETCH a.category " +
                 "LEFT JOIN FETCH a.author " +
-                "WHERE a.status = :status ORDER BY a.date DESC",
+                "WHERE a.status = :status ORDER BY a.date DESC, a.id DESC",
                 Annonce.class
             ).setParameter("status", AnnonceStatus.PUBLISHED)
              .setFirstResult(page * size)
@@ -271,6 +316,16 @@ public class AnnonceService extends AbstractService {
              .getSingleResult();
         } finally {
             em.close();
+        }
+    }
+
+    /**
+     * Vérifie que l'utilisateur courant est bien l'auteur de l'annonce.
+     * Lève une ForbiddenException sinon.
+     */
+    private void verifierAuteur(Annonce annonce, Long currentUserId) {
+        if (annonce.getAuthor() == null || !annonce.getAuthor().getId().equals(currentUserId)) {
+            throw new ForbiddenException("Vous n'êtes pas l'auteur de cette annonce");
         }
     }
 }

@@ -6,12 +6,12 @@ import jakarta.persistence.Persistence;
 
 public class EntityManagerUtil {
 
-    private static final String PERSISTENCE_UNIT_NAME = "masterannoncePU";
+    private static final String DEFAULT_PU = "masterannoncePU";
     private static EntityManagerFactory entityManagerFactory;
 
     static {
         try {
-            entityManagerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+            entityManagerFactory = Persistence.createEntityManagerFactory(DEFAULT_PU);
         } catch (Exception e) {
             System.err.println("Erreur lors de l'initialisation de l'EntityManagerFactory : " + e.getMessage());
             e.printStackTrace();
@@ -20,6 +20,15 @@ public class EntityManagerUtil {
     }
 
     private EntityManagerUtil() {
+    }
+
+    /**
+     * Réinitialise l'EntityManagerFactory avec un persistence unit différent.
+     * Utilisé par les tests pour basculer sur H2 In-Memory (testPU).
+     */
+    public static synchronized void init(String persistenceUnitName) {
+        close();
+        entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnitName);
     }
 
     public static EntityManagerFactory getEntityManagerFactory() {

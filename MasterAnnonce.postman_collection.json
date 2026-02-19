@@ -1,0 +1,385 @@
+{
+	"info": {
+		"_postman_id": "master-annonce-api",
+		"name": "MasterAnnonce API",
+		"description": "Collection Postman pour l'API REST MasterAnnonce - TP Dev Avancé #3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/demo1/api",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Exercice 1 - HelloWorld & Params",
+			"item": [
+				{
+					"name": "GET /api/helloWorld",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/helloWorld",
+							"host": ["{{baseUrl}}"],
+							"path": ["helloWorld"]
+						}
+					}
+				},
+				{
+					"name": "GET /api/params (QueryParams)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/params?nom=Jean&age=25",
+							"host": ["{{baseUrl}}"],
+							"path": ["params"],
+							"query": [
+								{"key": "nom", "value": "Jean"},
+								{"key": "age", "value": "25"}
+							]
+						}
+					}
+				},
+				{
+					"name": "GET /api/params/{nom}/{age} (PathParams)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/params/Jean/25",
+							"host": ["{{baseUrl}}"],
+							"path": ["params", "Jean", "25"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Authentification",
+			"item": [
+				{
+					"name": "POST /api/auth/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if (pm.response.code === 200) {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set('token', jsonData.token);",
+									"    console.log('Token saved: ' + jsonData.token);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"alice\",\n    \"password\": \"password123\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "login"]
+						}
+					}
+				},
+				{
+					"name": "POST /api/auth/login (mauvais mot de passe)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"alice\",\n    \"password\": \"wrong\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/auth/login",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "login"]
+						}
+					}
+				},
+				{
+					"name": "POST /api/auth/logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/auth/logout",
+							"host": ["{{baseUrl}}"],
+							"path": ["auth", "logout"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Annonces - Lecture (public)",
+			"item": [
+				{
+					"name": "GET /api/annonces (liste paginée)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/annonces?page=0&size=10",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces"],
+							"query": [
+								{"key": "page", "value": "0"},
+								{"key": "size", "value": "10"}
+							]
+						}
+					}
+				},
+				{
+					"name": "GET /api/annonces/{id} (détail)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				},
+				{
+					"name": "GET /api/annonces/{id} (404 - inexistant)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/9999",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "9999"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Annonces - CRUD (authentifié)",
+			"item": [
+				{
+					"name": "POST /api/annonces (créer)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Appartement 3 pièces Paris 20e\",\n    \"description\": \"Bel appartement lumineux, proche métro\",\n    \"adress\": \"12 rue de Belleville, 75020 Paris\",\n    \"mail\": \"contact@exemple.fr\",\n    \"categoryId\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces"]
+						}
+					}
+				},
+				{
+					"name": "POST /api/annonces (400 - titre vide)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"\",\n    \"description\": \"Description sans titre\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces"]
+						}
+					}
+				},
+				{
+					"name": "POST /api/annonces (401 - sans token)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Test sans auth\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces"]
+						}
+					}
+				},
+				{
+					"name": "PUT /api/annonces/{id} (modifier - complet)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Titre modifié\",\n    \"description\": \"Description modifiée\",\n    \"adress\": \"Nouvelle adresse\",\n    \"mail\": \"nouveau@mail.fr\",\n    \"categoryId\": 2\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				},
+				{
+					"name": "PATCH /api/annonces/{id} (modifier - partiel)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Nouveau titre uniquement\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				},
+				{
+					"name": "DELETE /api/annonces/{id} (supprimer)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Annonces - Cycle de vie",
+			"item": [
+				{
+					"name": "POST /api/annonces/{id}/publier",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1/publier",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1", "publier"]
+						}
+					}
+				},
+				{
+					"name": "POST /api/annonces/{id}/archiver",
+					"request": {
+						"method": "POST",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1/archiver",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1", "archiver"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Tests d'erreurs",
+			"item": [
+				{
+					"name": "PUT annonce publiée (409 - conflit)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Tentative de modifier une annonce publiée\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				},
+				{
+					"name": "DELETE annonce non archivée (409 - conflit)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/annonces/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "1"]
+						}
+					}
+				},
+				{
+					"name": "PUT annonce d'un autre (403 - interdit)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{"key": "Content-Type", "value": "application/json"},
+							{"key": "Authorization", "value": "Bearer {{token}}"}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Tentative de modifier l'annonce d'un autre\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/annonces/2",
+							"host": ["{{baseUrl}}"],
+							"path": ["annonces", "2"]
+						}
+					}
+				}
+			]
+		}
+	]
+}

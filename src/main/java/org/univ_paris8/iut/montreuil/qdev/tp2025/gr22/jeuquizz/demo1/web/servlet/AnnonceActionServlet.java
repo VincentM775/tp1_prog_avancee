@@ -62,17 +62,17 @@ public class AnnonceActionServlet extends HttpServlet {
         try {
             switch (action.toLowerCase()) {
                 case "publish":
-                    annonceService.publier(id);
+                    annonceService.publier(id, userId);
                     setFlashMessage(session, "success", "Annonce publiée avec succès");
                     break;
 
                 case "archive":
-                    annonceService.archiver(id);
+                    annonceService.archiver(id, userId);
                     setFlashMessage(session, "success", "Annonce archivée avec succès");
                     break;
 
                 case "delete":
-                    annonceService.supprimer(id);
+                    annonceService.supprimer(id, userId);
                     setFlashMessage(session, "success", "Annonce supprimée avec succès");
                     response.sendRedirect(request.getContextPath() + "/mes-annonces");
                     return;

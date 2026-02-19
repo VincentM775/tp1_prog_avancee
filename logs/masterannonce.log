@@ -1,0 +1,717 @@
+2026-02-19 12:03:28.647 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:03:29.042 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:03:32.704 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:03:32.714 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 10 résultats sur 226 total
+2026-02-19 12:03:32.860 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:03:32.870 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:03:32.881 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:03:32.890 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:03:32.898 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:03:32.907 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:03:32.912 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=339 par userId=1
+2026-02-19 12:03:32.926 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:04:47.423 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:04:47.803 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:04:51.153 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:04:51.156 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 2 total
+2026-02-19 12:04:51.283 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:04:51.284 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce 1 supprimée par userId=1
+2026-02-19 12:04:51.286 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:04:51.295 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:04:51.298 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PATCH /annonces/1 - userId=1
+2026-02-19 12:04:51.302 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:04:51.304 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:04:51.307 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:04:51.307 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=42 par userId=1
+2026-02-19 12:04:51.312 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:07:50.634 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:07:50.924 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:07:54.335 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:07:54.339 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 2 total
+2026-02-19 12:07:54.502 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:07:54.503 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce 1 supprimée par userId=1
+2026-02-19 12:07:54.508 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:07:54.518 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:07:54.522 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PATCH /annonces/1 - userId=1
+2026-02-19 12:07:54.525 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:07:54.528 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:07:54.532 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:07:54.532 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=42 par userId=1
+2026-02-19 12:07:54.538 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:07:57.526 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:07:57.712 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:07:58.930 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:07:59.097 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:07:59.366 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 23505, SQLState: 23505
+2026-02-19 12:07:59.366 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Violation d'index unique ou clé primaire: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:1 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:07:59.239218', CAST(1 AS BIGINT), CAST(0 AS BIGINT), 'Paris 75015', 'alice@test.com', 'Appartement Paris 15', 'Bel appartement 3 pieces', 'PUBLISHED')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:1 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:07:59.239218', CAST(1 AS BIGINT), CAST(0 AS BIGINT), 'Paris 75015', 'alice@test.com', 'Appartement Paris 15', 'Bel appartement 3 pieces', 'PUBLISHED')"; SQL statement:
+insert into annonces (adress,author_id,category_id,date_creation,description,mail,status,title,version,id) values (?,?,?,?,?,?,?,?,?,default) [23505-224]
+2026-02-19 12:07:59.930 [main] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 23505, SQLState: 23505
+2026-02-19 12:07:59.930 [main] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Violation d'index unique ou clé primaire: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:2 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:07:59.240218', CAST(2 AS BIGINT), CAST(0 AS BIGINT), 'Montreuil 93100', 'alice@test.com', 'Maison Montreuil', 'Grande maison avec jardin', 'PUBLISHED')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:2 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:07:59.240218', CAST(2 AS BIGINT), CAST(0 AS BIGINT), 'Montreuil 93100', 'alice@test.com', 'Maison Montreuil', 'Grande maison avec jardin', 'PUBLISHED')"; SQL statement:
+insert into annonces (adress,author_id,category_id,date_creation,description,mail,status,title,version,id) values (?,?,?,?,?,?,?,?,?,default) [23505-224]
+2026-02-19 12:07:59.972 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:07:59.973 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:00.959 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:00.961 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:01.181 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:01.182 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:01.351 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:01.351 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:01.508 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=2
+2026-02-19 12:08:01.546 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 5 total
+2026-02-19 12:08:01.609 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:01.611 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:01.763 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:08:01.802 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:01.803 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:01.944 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:08:01.973 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:01.974 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:02.157 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:02.158 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:02.324 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:02.325 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:02.496 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Annonce IT Test'
+2026-02-19 12:08:02.502 [grizzly-http-server-0] WARN  o.h.e.jdbc.spi.SqlExceptionHelper - SQL Error: 23505, SQLState: 23505
+2026-02-19 12:08:02.502 [grizzly-http-server-0] ERROR o.h.e.jdbc.spi.SqlExceptionHelper - Violation d'index unique ou clé primaire: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:1 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:08:02.378387', CAST(1 AS BIGINT), CAST(0 AS BIGINT), 'Paris 75015', 'alice@test.com', 'Appartement Paris 15', 'Bel appartement 3 pieces', 'PUBLISHED')"
+Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.ANNONCES(ID) ( /* key:1 */ CAST(1 AS BIGINT), CAST(1 AS BIGINT), TIMESTAMP '2026-02-19 12:08:02.378387', CAST(1 AS BIGINT), CAST(0 AS BIGINT), 'Paris 75015', 'alice@test.com', 'Appartement Paris 15', 'Bel appartement 3 pieces', 'PUBLISHED')"; SQL statement:
+insert into annonces (adress,author_id,category_id,date_creation,description,mail,status,title,version,id) values (?,?,?,?,?,?,?,?,?,default) [23505-224]
+2026-02-19 12:08:02.523 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:02.524 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:02.647 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title=''
+2026-02-19 12:08:02.676 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:02.678 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:02.827 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/6 - userId=1
+2026-02-19 12:08:02.876 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:02.877 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.007 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:08:03.033 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.034 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.150 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/3 - userId=1
+2026-02-19 12:08:03.172 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.173 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.281 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/6 - userId=1
+2026-02-19 12:08:03.302 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.303 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.407 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:08:03.412 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Login réussi pour userId=1 username='alice'
+2026-02-19 12:08:03.435 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.436 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.543 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:08:03.545 [grizzly-http-server-0] WARN  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Échec login pour username='alice' - mot de passe incorrect
+2026-02-19 12:08:03.566 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.567 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.681 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='inconnu'
+2026-02-19 12:08:03.708 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:08:03.709 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:08:03.819 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.819 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.828 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.828 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.828 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.828 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.829 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.830 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.831 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.831 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.831 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.831 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.834 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.834 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.834 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.834 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.834 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.835 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.835 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.835 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.836 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.836 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.836 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.837 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.837 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.837 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.837 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.837 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.839 [grizzly-http-server-20] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.840 [grizzly-http-server-22] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.840 [grizzly-http-server-21] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.840 [grizzly-http-server-23] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.840 [grizzly-http-server-24] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.840 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.840 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.840 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.842 [grizzly-http-server-25] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.843 [grizzly-http-server-24] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.843 [grizzly-http-server-23] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.843 [grizzly-http-server-22] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.843 [grizzly-http-server-20] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.844 [grizzly-http-server-21] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.844 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.845 [grizzly-http-server-26] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.845 [grizzly-http-server-27] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.845 [grizzly-http-server-28] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.846 [grizzly-http-server-29] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.846 [grizzly-http-server-31] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.846 [grizzly-http-server-25] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.846 [grizzly-http-server-30] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.847 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.847 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.847 [grizzly-http-server-28] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.847 [grizzly-http-server-27] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.847 [grizzly-http-server-29] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.848 [grizzly-http-server-30] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.848 [grizzly-http-server-31] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.848 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.848 [grizzly-http-server-26] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.852 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.851 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.852 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.852 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.854 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.854 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.855 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.856 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.856 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.858 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.858 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.858 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.859 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.859 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.859 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:08:03.859 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.859 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.859 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.859 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.859 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.859 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:08:03.861 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:14:50.719 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:14:50.905 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:14:54.127 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:14:54.133 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 2 total
+2026-02-19 12:14:54.299 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:14:54.299 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce 1 supprimée par userId=1
+2026-02-19 12:14:54.305 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:14:54.315 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:14:54.319 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PATCH /annonces/1 - userId=1
+2026-02-19 12:14:54.323 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:14:54.328 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:14:54.333 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:14:54.333 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=42 par userId=1
+2026-02-19 12:14:54.341 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:14:57.793 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:14:58.000 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:14:59.382 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:14:59.516 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:00.371 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:00.372 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:01.417 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:01.419 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:01.666 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:01.668 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:01.869 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:01.869 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.034 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=2
+2026-02-19 12:15:02.066 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 5 total
+2026-02-19 12:15:02.133 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:02.134 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.282 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:15:02.312 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:02.313 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.467 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:15:02.497 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:02.498 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.669 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:02.669 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.828 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:02.830 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:02.995 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Annonce IT Test'
+2026-02-19 12:15:03.004 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=100 par userId=1
+2026-02-19 12:15:03.026 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.027 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.155 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title=''
+2026-02-19 12:15:03.181 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.182 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.303 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/6 - userId=1
+2026-02-19 12:15:03.333 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.334 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.457 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:15:03.480 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.481 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.600 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/3 - userId=1
+2026-02-19 12:15:03.624 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.626 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.748 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/6 - userId=1
+2026-02-19 12:15:03.770 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.771 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:03.883 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:15:03.887 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Login réussi pour userId=1 username='alice'
+2026-02-19 12:15:03.908 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:03.909 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:04.016 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:15:04.019 [grizzly-http-server-0] WARN  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Échec login pour username='alice' - mot de passe incorrect
+2026-02-19 12:15:04.039 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:04.041 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:04.160 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='inconnu'
+2026-02-19 12:15:04.186 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:04.187 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:04.302 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.302 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.310 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.310 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.311 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.311 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.311 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.311 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.312 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.312 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.312 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.315 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.320 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.320 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.320 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.320 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.320 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.321 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.321 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.321 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.321 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.321 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.323 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.323 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.324 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.325 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.325 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.328 [grizzly-http-server-20] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.328 [grizzly-http-server-22] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.328 [grizzly-http-server-23] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.329 [grizzly-http-server-27] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.329 [grizzly-http-server-21] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.330 [grizzly-http-server-24] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.330 [grizzly-http-server-28] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.330 [grizzly-http-server-25] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.330 [grizzly-http-server-30] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.330 [grizzly-http-server-26] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.333 [grizzly-http-server-28] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.333 [grizzly-http-server-21] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.334 [grizzly-http-server-25] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.334 [grizzly-http-server-30] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.334 [grizzly-http-server-20] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.334 [grizzly-http-server-22] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.335 [grizzly-http-server-23] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.335 [grizzly-http-server-26] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.335 [grizzly-http-server-24] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.335 [grizzly-http-server-27] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.338 [grizzly-http-server-29] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.338 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.338 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.339 [grizzly-http-server-31] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.339 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.339 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.340 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.340 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.340 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.341 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.341 [grizzly-http-server-29] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.341 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.341 [grizzly-http-server-31] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.341 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.341 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.342 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.342 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.342 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.343 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.344 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.344 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.344 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.345 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.345 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.345 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.345 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.346 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.346 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.347 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.347 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:04.348 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.348 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.348 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.348 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.348 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.350 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.350 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.350 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.350 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:04.350 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:18.087 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:18.271 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:21.585 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:15:21.588 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 2 total
+2026-02-19 12:15:21.701 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:15:21.701 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce 1 supprimée par userId=1
+2026-02-19 12:15:21.704 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:15:21.715 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:15:21.718 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PATCH /annonces/1 - userId=1
+2026-02-19 12:15:21.720 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:15:21.723 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:15:21.727 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:15:21.727 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=42 par userId=1
+2026-02-19 12:15:21.733 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:15:24.404 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:24.581 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:25.778 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:25.896 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:26.655 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:26.656 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:27.619 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:27.621 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:27.823 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:27.824 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.015 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.016 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.166 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=2
+2026-02-19 12:15:28.197 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 5 total
+2026-02-19 12:15:28.268 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.269 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.419 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:15:28.448 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.450 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.582 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:15:28.617 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.618 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.772 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.773 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:28.926 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:28.927 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.081 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Annonce IT Test'
+2026-02-19 12:15:29.088 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=100 par userId=1
+2026-02-19 12:15:29.109 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.110 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.236 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title=''
+2026-02-19 12:15:29.266 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.267 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.398 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/6 - userId=1
+2026-02-19 12:15:29.430 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.431 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.550 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:15:29.573 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.574 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.690 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/3 - userId=1
+2026-02-19 12:15:29.712 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.714 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.819 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/6 - userId=1
+2026-02-19 12:15:29.844 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.845 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:29.954 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:15:29.957 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Login réussi pour userId=1 username='alice'
+2026-02-19 12:15:29.974 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:29.975 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:30.093 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:15:30.096 [grizzly-http-server-0] WARN  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Échec login pour username='alice' - mot de passe incorrect
+2026-02-19 12:15:30.114 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:30.116 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:30.229 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='inconnu'
+2026-02-19 12:15:30.254 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:15:30.255 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:15:30.369 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.369 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.369 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.369 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.369 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.370 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.370 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.370 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.370 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.370 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.375 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.375 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.375 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.375 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.376 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.376 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.377 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.377 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.377 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.379 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.384 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.384 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.385 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.385 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.386 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.387 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.388 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.388 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.389 [grizzly-http-server-20] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.389 [grizzly-http-server-22] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.389 [grizzly-http-server-21] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-24] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-23] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-26] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-27] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-28] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-29] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.390 [grizzly-http-server-25] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.391 [grizzly-http-server-22] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.391 [grizzly-http-server-26] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.391 [grizzly-http-server-21] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-20] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-23] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-28] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-27] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-24] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-29] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.392 [grizzly-http-server-25] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.394 [grizzly-http-server-30] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.394 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.394 [grizzly-http-server-31] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.395 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.397 [grizzly-http-server-30] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.397 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.397 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.397 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.398 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.398 [grizzly-http-server-31] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.398 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.398 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.400 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.400 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.401 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.401 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.401 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.402 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.404 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.404 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:15:30.405 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:15:30.405 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:16:58.244 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:16:58.525 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:01.700 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=10
+2026-02-19 12:17:01.703 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 2 total
+2026-02-19 12:17:01.825 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/1 - userId=1
+2026-02-19 12:17:01.826 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce 1 supprimée par userId=1
+2026-02-19 12:17:01.828 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:17:01.839 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:17:01.843 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PATCH /annonces/1 - userId=1
+2026-02-19 12:17:01.847 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/archiver - userId=1
+2026-02-19 12:17:01.850 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces/1/publier - userId=1
+2026-02-19 12:17:01.852 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Nouvelle annonce'
+2026-02-19 12:17:01.852 [main] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=42 par userId=1
+2026-02-19 12:17:01.858 [main] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:17:04.938 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:05.103 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:06.237 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:06.357 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:07.015 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:07.016 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:08.096 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:08.098 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:08.316 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:08.317 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:08.521 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:08.522 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:08.704 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=2
+2026-02-19 12:17:08.744 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 2 résultats sur 5 total
+2026-02-19 12:17:08.819 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:08.820 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:08.982 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/1
+2026-02-19 12:17:09.016 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:09.016 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:09.159 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces/999
+2026-02-19 12:17:09.194 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:09.195 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:09.433 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:09.439 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:09.649 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:09.651 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:09.822 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title='Annonce IT Test'
+2026-02-19 12:17:09.831 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - Annonce créée id=100 par userId=1
+2026-02-19 12:17:09.858 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:09.860 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:09.997 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - POST /annonces - userId=1 title=''
+2026-02-19 12:17:10.030 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.031 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.162 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/6 - userId=1
+2026-02-19 12:17:10.201 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.202 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.319 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/1 - userId=1
+2026-02-19 12:17:10.347 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.348 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.472 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - PUT /annonces/3 - userId=1
+2026-02-19 12:17:10.495 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.496 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.614 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - DELETE /annonces/6 - userId=1
+2026-02-19 12:17:10.639 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.640 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.750 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:17:10.753 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Login réussi pour userId=1 username='alice'
+2026-02-19 12:17:10.769 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.770 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:10.883 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='alice'
+2026-02-19 12:17:10.886 [grizzly-http-server-0] WARN  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Échec login pour username='alice' - mot de passe incorrect
+2026-02-19 12:17:10.902 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:10.903 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:11.010 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AuthResource - Tentative de login pour username='inconnu'
+2026-02-19 12:17:11.034 [main] WARN  o.hibernate.orm.connections.pooling - HHH10001002: Using built-in connection pool (not intended for production use)
+2026-02-19 12:17:11.035 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19 12:17:11.151 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.151 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.153 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.153 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.158 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.158 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.158 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.160 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.163 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.168 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-16] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-15] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.168 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.170 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.172 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.172 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.172 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.173 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.173 [grizzly-http-server-16] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.174 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.174 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.174 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.175 [grizzly-http-server-23] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.175 [grizzly-http-server-25] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.175 [grizzly-http-server-15] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.175 [grizzly-http-server-20] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.176 [grizzly-http-server-21] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.177 [grizzly-http-server-24] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.177 [grizzly-http-server-27] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.177 [grizzly-http-server-22] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.177 [grizzly-http-server-26] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.179 [grizzly-http-server-28] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.179 [grizzly-http-server-25] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.179 [grizzly-http-server-31] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.179 [grizzly-http-server-21] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.179 [grizzly-http-server-20] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.179 [grizzly-http-server-23] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.180 [grizzly-http-server-22] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.180 [grizzly-http-server-24] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.180 [grizzly-http-server-26] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.180 [grizzly-http-server-27] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.181 [grizzly-http-server-28] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.181 [grizzly-http-server-31] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.182 [grizzly-http-server-6] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.182 [grizzly-http-server-30] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.182 [grizzly-http-server-29] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.182 [grizzly-http-server-1] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-9] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-5] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-7] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-3] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-4] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.185 [grizzly-http-server-0] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.186 [grizzly-http-server-29] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.186 [grizzly-http-server-6] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.186 [grizzly-http-server-1] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.186 [grizzly-http-server-30] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.187 [grizzly-http-server-3] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.188 [grizzly-http-server-4] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.188 [grizzly-http-server-9] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.189 [grizzly-http-server-5] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.189 [grizzly-http-server-7] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.189 [grizzly-http-server-0] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.191 [grizzly-http-server-2] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.192 [grizzly-http-server-8] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.192 [grizzly-http-server-11] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.192 [grizzly-http-server-18] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.192 [grizzly-http-server-19] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.193 [grizzly-http-server-17] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.193 [grizzly-http-server-14] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.193 [grizzly-http-server-10] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.193 [grizzly-http-server-12] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.194 [grizzly-http-server-13] DEBUG o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces page=0 size=5
+2026-02-19 12:17:11.195 [grizzly-http-server-2] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-18] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-8] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-12] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-11] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-10] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-14] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.195 [grizzly-http-server-19] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.196 [grizzly-http-server-13] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total
+2026-02-19 12:17:11.196 [grizzly-http-server-17] INFO  o.u.i.m.q.t.g.j.d.w.a.r.AnnonceResource - GET /annonces - 5 résultats sur 5 total

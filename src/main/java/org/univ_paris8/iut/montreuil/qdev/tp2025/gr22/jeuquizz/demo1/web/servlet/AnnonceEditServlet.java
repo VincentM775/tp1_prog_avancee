@@ -152,7 +152,7 @@ public class AnnonceEditServlet extends HttpServlet {
                 description != null ? description.trim() : null,
                 adress != null ? adress.trim() : null,
                 mail != null ? mail.trim() : null,
-                categoryId);
+                categoryId, userId);
             response.sendRedirect(request.getContextPath() + "/annonces/detail?id=" + id);
 
         } catch (EntityNotFoundException e) {

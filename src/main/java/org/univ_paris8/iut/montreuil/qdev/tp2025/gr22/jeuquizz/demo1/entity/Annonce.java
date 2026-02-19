@@ -42,6 +42,9 @@ public class Annonce {
     @Column(nullable = false)
     private AnnonceStatus status = AnnonceStatus.DRAFT;
 
+    @Version
+    private Long version;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private User author;
@@ -125,6 +128,14 @@ public class Annonce {
 
     public void setStatus(AnnonceStatus status) {
         this.status = status;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
+        this.version = version;
     }
 
     public User getAuthor() {

@@ -104,7 +104,7 @@ public class AnnonceRepository extends AbstractRepository<Annonce, Long> {
         EntityManager em = getEntityManager();
         try {
             TypedQuery<Annonce> query = em.createQuery(
-                "SELECT a FROM Annonce a WHERE a.status = :status ORDER BY a.date DESC",
+                "SELECT a FROM Annonce a WHERE a.status = :status ORDER BY a.date DESC, a.id DESC",
                 Annonce.class
             );
             query.setParameter("status", AnnonceStatus.PUBLISHED);

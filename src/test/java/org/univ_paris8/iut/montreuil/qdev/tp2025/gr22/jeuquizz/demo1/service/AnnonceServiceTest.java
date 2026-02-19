@@ -120,7 +120,8 @@ class AnnonceServiceTest {
             "Nouvelle description",
             null,  // adresse inchangée
             null,  // mail inchangé
-            null   // catégorie inchangée
+            null,  // catégorie inchangée
+            testUser.getId()
         );
 
         assertEquals("Titre modifié", modifiee.getTitle());
@@ -133,7 +134,7 @@ class AnnonceServiceTest {
     @Order(30)
     @DisplayName("publier() - Publication avec succès")
     void testPublierAnnonce() {
-        Annonce publiee = annonceService.publier(testAnnonce.getId());
+        Annonce publiee = annonceService.publier(testAnnonce.getId(), testUser.getId());
 
         assertEquals(AnnonceStatus.PUBLISHED, publiee.getStatus());
     }
@@ -143,8 +144,8 @@ class AnnonceServiceTest {
     @DisplayName("publier() - Échec si déjà publiée")
     void testPublierAnnonceDejaPubliee() {
         // L'annonce est déjà publiée (test précédent)
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
-            annonceService.publier(testAnnonce.getId());
+        ConflictException exception = assertThrows(ConflictException.class, () -> {
+            annonceService.publier(testAnnonce.getId(), testUser.getId());
         });
 
         assertTrue(exception.getMessage().contains("déjà publiée"));
@@ -156,7 +157,7 @@ class AnnonceServiceTest {
     @Order(40)
     @DisplayName("archiver() - Archivage avec succès")
     void testArchiverAnnonce() {
-        Annonce archivee = annonceService.archiver(testAnnonce.getId());
+        Annonce archivee = annonceService.archiver(testAnnonce.getId(), testUser.getId());
 
         assertEquals(AnnonceStatus.ARCHIVED, archivee.getStatus());
     }
@@ -165,8 +166,8 @@ class AnnonceServiceTest {
     @Order(41)
     @DisplayName("archiver() - Échec si déjà archivée")
     void testArchiverAnnonceDejaArchivee() {
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
-            annonceService.archiver(testAnnonce.getId());
+        ConflictException exception = assertThrows(ConflictException.class, () -> {
+            annonceService.archiver(testAnnonce.getId(), testUser.getId());
         });
 
         assertTrue(exception.getMessage().contains("déjà archivée"));
@@ -176,8 +177,8 @@ class AnnonceServiceTest {
     @Order(42)
     @DisplayName("modifier() - Échec si annonce archivée")
     void testModifierAnnonceArchivee() {
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
-            annonceService.modifier(testAnnonce.getId(), "Nouveau titre", null, null, null, null);
+        ConflictException exception = assertThrows(ConflictException.class, () -> {
+            annonceService.modifier(testAnnonce.getId(), "Nouveau titre", null, null, null, null, testUser.getId());
         });
 
         assertTrue(exception.getMessage().contains("archivée"));
@@ -187,8 +188,8 @@ class AnnonceServiceTest {
     @Order(43)
     @DisplayName("publier() - Échec si annonce archivée")
     void testPublierAnnonceArchivee() {
-        BusinessException exception = assertThrows(BusinessException.class, () -> {
-            annonceService.publier(testAnnonce.getId());
+        ConflictException exception = assertThrows(ConflictException.class, () -> {
+            annonceService.publier(testAnnonce.getId(), testUser.getId());
         });
 
         assertTrue(exception.getMessage().contains("archivée"));
@@ -205,7 +206,7 @@ class AnnonceServiceTest {
         for (int i = 0; i < 5; i++) {
             Annonce a = new Annonce("Pagination " + i + "_" + suffix, "Desc", "Addr", "mail@test.com");
             Annonce created = annonceService.creer(a, testUser.getId(), null);
-            annonceService.publier(created.getId());
+            annonceService.publier(created.getId(), testUser.getId());
         }
 
         // Tester la pagination
@@ -244,7 +245,7 @@ class AnnonceServiceTest {
         String suffix = uniqueSuffix();
         Annonce a = new Annonce("Filtrage test " + suffix, "Desc", "Addr", "mail@test.com");
         Annonce created = annonceService.creer(a, testUser.getId(), testCategory.getId());
-        annonceService.publier(created.getId());
+        annonceService.publier(created.getId(), testUser.getId());
 
         // Rechercher avec filtres
         PagedResult<Annonce> results = annonceService.rechercher(
@@ -273,8 +274,12 @@ class AnnonceServiceTest {
         Annonce created = annonceService.creer(a, testUser.getId(), null);
         Long id = created.getId();
 
+        // Archiver avant de supprimer (règle métier)
+        annonceService.publier(id, testUser.getId());
+        annonceService.archiver(id, testUser.getId());
+
         // Supprimer
-        annonceService.supprimer(id);
+        annonceService.supprimer(id, testUser.getId());
 
         // Vérifier
         Optional<Annonce> deleted = annonceService.trouverParId(id);
@@ -286,7 +291,7 @@ class AnnonceServiceTest {
     @DisplayName("supprimer() - Échec si annonce inexistante")
     void testSupprimerAnnonceInexistante() {
         assertThrows(EntityNotFoundException.class, () -> {
-            annonceService.supprimer(999999L);
+            annonceService.supprimer(999999L, testUser.getId());
         });
     }
 }
