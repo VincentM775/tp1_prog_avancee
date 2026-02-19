@@ -1,5 +1,9 @@
 package org.univ_paris8.iut.montreuil.qdev.tp2025.gr22.jeuquizz.demo1.web.api;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.info.Contact;
+import io.swagger.v3.oas.annotations.info.Info;
+import io.swagger.v3.oas.annotations.servers.Server;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
@@ -17,5 +21,18 @@ import jakarta.ws.rs.core.Application;
  * de la spécification JAX-RS, il est bien documenté et largement utilisé.
  */
 @ApplicationPath("/api")
+@OpenAPIDefinition(
+    info = @Info(
+        title = "MasterAnnonce API",
+        version = "1.0",
+        description = "API REST de gestion d'annonces - TP Dev Avancé #3 (BUT 3 IUT Montreuil). "
+                + "Permet de créer, modifier, publier, archiver et supprimer des annonces. "
+                + "Authentification stateless par token Bearer.",
+        contact = @Contact(name = "Groupe 22", url = "https://github.com/univ-paris8")
+    ),
+    servers = {
+        @Server(url = "/demo1", description = "Serveur local (Tomcat)")
+    }
+)
 public class RestApplication extends Application {
 }

@@ -60,8 +60,8 @@ public class AuthenticationFilter implements ContainerRequestFilter {
         if (path.startsWith("auth/")) {
             return true;
         }
-        // HelloWorld et Params
-        if (path.startsWith("helloWorld") || path.startsWith("params")) {
+        // HelloWorld, Params et OpenAPI
+        if (path.startsWith("helloWorld") || path.startsWith("params") || path.startsWith("openapi")) {
             return true;
         }
         // GET /annonces et GET /annonces/{id} sont publics (lecture)
