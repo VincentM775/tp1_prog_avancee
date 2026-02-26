@@ -1,0 +1,9 @@
+target/
+.git/
+.gitignore
+.claude/
+.idea/
+*.iml
+logs/
+*.log
+node_modules/

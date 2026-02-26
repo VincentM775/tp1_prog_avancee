@@ -17,60 +17,60 @@ Application web et API REST de gestion d'annonces développée dans le cadre du 
 
 ## Architecture du projet
 
-Le projet suit une **architecture en couches** (Layered Architecture) :
+Le projet suit une **architecture en couches** (Layered Architecture) avec Spring Boot :
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │                      COUCHE WEB                             │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
-│  │   Servlets  │  │    JSP      │  │   Filtres           │  │
-│  │  (Contrôle) │  │   (Vues)    │  │  (Auth, Encoding)   │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────┘  │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │              Validation (FormValidator, FormData)       ││
-│  └─────────────────────────────────────────────────────────┘│
+│  ┌──────────────────┐  ┌────────────────────────────────┐   │
+│  │  @RestController  │  │  Filtres Spring Security       │   │
+│  │  (AnnonceCtrl,   │  │  (JwtAuthFilter, CorrelationId)│   │
+│  │   AuthCtrl, Meta)│  └────────────────────────────────┘   │
+│  └──────────────────┘  ┌────────────────────────────────┐   │
+│  ┌──────────────────┐  │  GlobalExceptionHandler         │   │
+│  │  DTOs + MapStruct│  │  (@RestControllerAdvice)        │   │
+│  └──────────────────┘  └────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    COUCHE SERVICE                           │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
-│  │AnnonceService│ │ UserService │  │  CategoryService    │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────┘  │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │         AbstractService (gestion transactions)          ││
-│  └─────────────────────────────────────────────────────────┘│
+│  ┌──────────────┐  ┌──────────────┐  ┌─────────────────┐   │
+│  │AnnonceService│  │ UserService  │  │CategoryService  │   │
+│  │ (@Service)   │  │ (@Service)   │  │ (@Service)      │   │
+│  └──────────────┘  └──────────────┘  └─────────────────┘   │
+│  ┌──────────────┐  ┌──────────────────────────────────────┐ │
+│  │  JwtService  │  │  @Transactional + @PreAuthorize      │ │
+│  │ (security)   │  │  LoggingAspect (@Aspect / AOP)       │ │
+│  └──────────────┘  └──────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                   COUCHE REPOSITORY                         │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
-│  │AnnonceRepo  │  │  UserRepo   │  │   CategoryRepo      │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────┘  │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │    AbstractRepository (CRUD générique avec JPQL)        ││
-│  └─────────────────────────────────────────────────────────┘│
+│  ┌──────────────────────────────────────────────────────┐   │
+│  │  Spring Data JPA (JpaRepository + Specifications)    │   │
+│  ├──────────────┬──────────────┬─────────────────┬──────┤   │
+│  │AnnonceRepo   │  UserRepo   │  CategoryRepo   │Specs │   │
+│  └──────────────┴──────────────┴─────────────────┴──────┘   │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
 │                    COUCHE ENTITY                            │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐  │
-│  │   Annonce   │  │    User     │  │     Category        │  │
-│  │ (@Entity)   │  │  (@Entity)  │  │    (@Entity)        │  │
-│  └─────────────┘  └─────────────┘  └─────────────────────┘  │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────────────┐ │
+│  │   Annonce   │  │    User     │  │     Category        │ │
+│  │ (@Entity)   │  │  (@Entity)  │  │    (@Entity)        │ │
+│  └─────────────┘  └─────────────┘  └─────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  COUCHE PERSISTENCE                         │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │   EntityManagerUtil (Singleton EntityManagerFactory)    ││
-│  └─────────────────────────────────────────────────────────┘│
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │              persistence.xml (PostgreSQL)               ││
-│  └─────────────────────────────────────────────────────────┘│
+│              INFRASTRUCTURE (Spring Boot Auto-Config)       │
+│  ┌───────────────┐  ┌──────────────┐  ┌─────────────────┐  │
+│  │ application   │  │  Actuator    │  │  Docker +        │  │
+│  │ .yml          │  │ (health,info)│  │  docker-compose  │  │
+│  └───────────────┘  └──────────────┘  └─────────────────┘  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -78,46 +78,57 @@ Le projet suit une **architecture en couches** (Layered Architecture) :
 
 ```
 src/main/java/org/univ_paris8/.../demo1/
+├── MasterAnnonceApplication.java  # Classe principale Spring Boot
+│
 ├── entity/                  # Entités JPA
 │   ├── Annonce.java         # Entité principale avec relations + @Version
 │   ├── AnnonceStatus.java   # Enum (DRAFT, PUBLISHED, ARCHIVED)
-│   ├── User.java            # Utilisateur
+│   ├── User.java            # Utilisateur (avec rôle ROLE_USER/ROLE_ADMIN)
 │   └── Category.java        # Catégorie d'annonces
 │
-├── persistence/             # Gestion de la persistance
-│   ├── EntityManagerUtil.java    # Singleton Factory (configurable pour tests)
-│   └── PersistenceListener.java  # Lifecycle listener
-│
-├── repository/              # Couche accès données
-│   ├── GenericRepository.java    # Interface CRUD
-│   ├── AbstractRepository.java   # Implémentation générique
-│   ├── AnnonceRepository.java    # Requêtes spécifiques annonces
+├── repository/              # Spring Data JPA
+│   ├── AnnonceRepository.java      # JpaRepository + JpaSpecificationExecutor
+│   ├── AnnonceSpecifications.java  # Specifications composables (recherche dynamique)
 │   ├── UserRepository.java
 │   └── CategoryRepository.java
 │
-├── service/                 # Logique métier
-│   ├── AbstractService.java      # Gestion transactions
-│   ├── AnnonceService.java       # Règles métier annonces
-│   ├── UserService.java
+├── service/                 # Logique métier (@Service, @Transactional)
+│   ├── AnnonceService.java       # Règles métier annonces + @PreAuthorize
+│   ├── UserService.java          # Gestion utilisateurs + BCrypt
 │   ├── CategoryService.java
-│   ├── TokenService.java         # Gestion tokens stateless (singleton)
-│   ├── PagedResult.java          # Wrapper pagination
 │   ├── BusinessException.java    # Erreur métier (400)
 │   ├── EntityNotFoundException.java  # Ressource non trouvée (404)
 │   ├── ConflictException.java    # Conflit d'état (409)
-│   └── ForbiddenException.java   # Accès interdit (403)
+│   ├── ForbiddenException.java   # Accès interdit (403)
+│   └── ServiceException.java     # Exception de base
+│
+├── security/                # Sécurité JWT
+│   ├── JwtService.java           # Génération/validation tokens JWT (JJWT)
+│   └── JwtAuthenticationFilter.java  # OncePerRequestFilter
+│
+├── config/                  # Configuration Spring
+│   ├── SecurityConfig.java       # SecurityFilterChain, BCrypt, stateless
+│   └── OpenApiConfig.java        # Swagger/OpenAPI avec schéma Bearer
+│
+├── aspect/                  # AOP
+│   └── LoggingAspect.java        # Logging centralisé des services
+│
+├── filter/                  # Filtres HTTP
+│   └── CorrelationIdFilter.java  # MDC correlation ID
 │
 └── web/
-    ├── api/                      # API REST (JAX-RS / Jersey)
-    │   ├── RestApplication.java  # @ApplicationPath("/api")
-    │   ├── dto/                  # DTOs (AnnonceDTO, CreateAnnonceDTO, LoginDTO, ApiError...)
-    │   ├── filter/               # AuthenticationFilter (token Bearer)
-    │   ├── mapper/               # ExceptionMappers (400, 401, 403, 404, 409, 500)
-    │   └── resource/             # Ressources REST (AnnonceResource, AuthResource)
-    ├── filter/
-    │   └── AuthFilter.java       # Protection des routes (Servlets)
-    ├── servlet/                  # Servlets (couche web classique)
-    └── validation/               # Validation formulaires
+    ├── controller/               # @RestController
+    │   ├── AnnonceController.java    # CRUD + publish/archive
+    │   ├── AuthController.java       # Login JWT
+    │   └── MetaController.java       # Introspection entités
+    ├── dto/                      # DTOs
+    │   ├── AnnonceDTO.java, CreateAnnonceDTO.java, UpdateAnnonceDTO.java
+    │   ├── LoginRequest.java, LoginResponse.java
+    │   └── ApiError.java             # Format d'erreur normalisé
+    ├── mapper/                   # MapStruct
+    │   ├── AnnonceMapper.java, UserMapper.java, CategoryMapper.java
+    └── exception/
+        └── GlobalExceptionHandler.java  # @RestControllerAdvice
 ```
 
 ---
@@ -186,19 +197,26 @@ Authentification stateless par token Bearer (UUID) :
 
 | Technologie | Version | Rôle |
 |-------------|---------|------|
-| Java | 18 | Langage |
-| Jakarta EE | 10 | API Web (Servlets, JSP, JAX-RS) |
-| JAX-RS / Jersey | 3.1.5 | Framework REST |
-| JPA / Hibernate | 6.4 | ORM / Persistance |
-| PostgreSQL | 15+ | Base de données production |
-| H2 | 2.2.224 | Base de données tests (in-memory) |
-| SLF4J + Logback | 2.0 / 1.5 | Logging structuré |
-| Bean Validation | 3.0 | Validation des entrées |
-| Swagger / OpenAPI | 2.2.20 | Documentation API |
+| Java | 17+ | Langage |
+| Spring Boot | 3.4.3 | Framework principal |
+| Spring Web (MVC) | 6.x | API REST (@RestController) |
+| Spring Data JPA | 3.x | Accès données (JpaRepository, Specifications) |
+| Spring Security | 6.x | Authentification JWT, autorisation par rôles |
+| Spring AOP | 6.x | Logging centralisé (@Aspect) |
+| Spring Actuator | 3.x | Health checks, monitoring |
+| MapStruct | 1.5.5 | Mapping Entity/DTO (annotation processor) |
+| JJWT | 0.11.5 | Génération/validation tokens JWT |
+| PostgreSQL | 16+ | Base de données production |
+| H2 | 2.x | Base de données tests (fallback) |
+| Testcontainers | 1.x | PostgreSQL en conteneur pour tests d'intégration |
+| springdoc-openapi | 2.8.6 | Documentation Swagger UI |
 | JUnit 5 + Mockito | 5.10+ | Tests unitaires |
-| Jersey Test Framework | 3.1.5 | Tests REST intégration |
-| Maven (Surefire + Failsafe) | 3.2.5 | Build, tests unitaires / intégration |
-| Tailwind CSS | 3.x (CDN) | UI moderne |
+| Spring MockMvc | 6.x | Tests d'intégration REST |
+| JaCoCo | 0.8.12 | Couverture de code (89.8%) |
+| Maven (Surefire + Failsafe) | 3.x | Build, tests unitaires / intégration |
+| Docker | multi-stage | Conteneurisation (eclipse-temurin:17) |
+| GitHub Actions | CI | Pipeline CI (matrice Java 17+21) |
+| SonarQube | 10.x | Analyse qualité (0 bugs, 0 code smells) |
 
 ---
 
@@ -244,124 +262,199 @@ GRANT ALL PRIVILEGES ON DATABASE masterannonce TO masteruser;
 
 ## Problèmes rencontrés et solutions
 
-### 1. LazyInitializationException sur toutes les méthodes d'écriture (modifier, publier, archiver)
+### Problèmes des TPs précédents (TP1-TP3 : JAX-RS / JPA manuel)
 
-**Problème :** Les endpoints PUT, POST `/publier` et POST `/archiver` renvoyaient systématiquement une erreur 500 en production. Après investigation, le `AnnonceDTO.fromEntity()` tentait d'accéder à `annonce.getAuthor().getUsername()` et `annonce.getCategory().getLabel()` alors que l'EntityManager était déjà fermé. L'entité retournée par `entityManager.find()` dans la méthode `modifier()` ne chargeait pas les relations `@ManyToOne(fetch = LAZY)`. Seule la méthode `trouverParId()` utilisait un `JOIN FETCH`, mais les méthodes d'écriture (`modifier`, `publier`, `archiver`) utilisaient un simple `find()`, ce qui provoquait une `LazyInitializationException` au moment de la sérialisation JSON.
+<details>
+<summary>Cliquer pour afficher les 9 problèmes des TPs 1-3</summary>
 
-**Solution :** Remplacer `entityManager.find(Annonce.class, id)` par une requête JPQL avec `JOIN FETCH` dans **toutes** les méthodes qui retournent une entité au contrôleur REST :
+#### 1. LazyInitializationException sur les méthodes d'écriture
+**Problème :** Les endpoints PUT, POST `/publier` et POST `/archiver` renvoyaient une erreur 500. Le `AnnonceDTO.fromEntity()` accédait à `annonce.getAuthor()` et `annonce.getCategory()` alors que l'EntityManager était fermé. Les méthodes d'écriture utilisaient `entityManager.find()` au lieu d'un `JOIN FETCH`.
+
+**Solution :** Remplacer `find()` par une requête JPQL avec `JOIN FETCH` dans toutes les méthodes retournant une entité au contrôleur.
+
+#### 2. Problème N+1 Select sur les listes paginées
+**Problème :** Hibernate générait 1 + N + N requêtes SQL pour lister les annonces (1 pour les annonces, N pour les catégories, N pour les auteurs).
+
+**Solution :** `LEFT JOIN FETCH a.category LEFT JOIN FETCH a.author` dans toutes les requêtes de listing.
+
+#### 3. Conflits de clés primaires avec H2 en mode test
+**Problème :** `test-data.sql` insérait des IDs explicites (1-7) mais `@GeneratedValue(IDENTITY)` avec H2 démarrait aussi à 1.
+
+**Solution :** `ALTER TABLE ... ALTER COLUMN id RESTART WITH 100;` en fin de script.
+
+#### 4. Pagination non déterministe
+**Problème :** Doublons entre pages car toutes les annonces avaient la même date.
+
+**Solution :** Tri secondaire par ID : `ORDER BY a.date DESC, a.id DESC`.
+
+#### 5. Injection de mocks impossible (champ final inline)
+**Problème :** Mockito ne pouvait pas remplacer `private final AnnonceService annonceService = new AnnonceService()`.
+
+**Solution :** Constructeur package-private acceptant le service en paramètre.
+
+#### 6. Detached Entity passée à persist
+**Problème :** Entités chargées dans une transaction, utilisées dans une autre.
+
+**Solution :** Tout faire dans la même transaction.
+
+#### 7. Transaction non active en mode RESOURCE_LOCAL
+**Problème :** `persist()` sans `tx.begin()`/`tx.commit()` = données jamais écrites (bug silencieux).
+
+**Solution :** Centralisation dans `AbstractService.executeInTransaction()`.
+
+#### 8. Fuite de connexions (EntityManager non fermé)
+**Problème :** Certains chemins d'exception ne fermaient pas l'EM, épuisant le pool de connexions.
+
+**Solution :** `try-finally` systématique avec `em.close()`.
+
+#### 9. Incompatibilité de version Java
+**Problème :** pom.xml ciblait Java 22, JDK installé en Java 18.
+
+**Solution :** Aligner `maven.compiler.source/target` avec le JDK réel.
+
+</details>
+
+---
+
+### Problèmes du TP4 (Migration Spring Boot)
+
+#### 1. SecurityConfig : 403 au lieu de 401 pour les requêtes non authentifiées
+
+**Problème :** Lors des tests d'intégration REST (exercice 8), les endpoints protégés renvoyaient `403 Forbidden` au lieu de `401 Unauthorized` quand aucun token n'était fourni. Par défaut, Spring Security utilise un `LoginUrlAuthenticationEntryPoint` qui tente de rediriger vers une page de login. En API REST stateless, ce comportement n'a pas de sens et provoquait un 403 au lieu du 401 attendu.
+
+**Solution :** Configurer explicitement un `HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED)` dans le `SecurityFilterChain` :
 ```java
-Annonce annonce = entityManager.createQuery(
-    "SELECT a FROM Annonce a LEFT JOIN FETCH a.author LEFT JOIN FETCH a.category WHERE a.id = :id",
-    Annonce.class
-).setParameter("id", id).getResultStream().findFirst().orElse(null);
+.exceptionHandling(ex -> ex
+    .authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+)
 ```
-La leçon : dès qu'une entité doit être convertie en DTO après la fermeture de l'EM, il faut un `JOIN FETCH`. Le `find()` ne suffit pas.
+Cela force Spring Security à retourner un code 401 brut pour toute requête non authentifiée, sans redirection.
 
 ---
 
-### 2. Problème N+1 Select sur les listes paginées
+#### 2. AccessDeniedException renvoyait un 500 au lieu de 403
 
-**Problème :** En listant les annonces publiées, Hibernate générait 1 requête pour les annonces + N requêtes pour charger chaque catégorie + N requêtes pour chaque auteur. Avec `hibernate.show_sql=true`, on observait parfois 15+ requêtes SQL pour un simple GET `/api/annonces?page=0&size=5`. Le temps de réponse augmentait linéairement avec le nombre d'annonces.
+**Problème :** Les méthodes protégées par `@PreAuthorize("hasRole('ADMIN')")` lançaient une `AccessDeniedException` de Spring Security quand un utilisateur avec le rôle USER tentait d'y accéder. Mais cette exception n'était pas interceptée par le `GlobalExceptionHandler`, ce qui causait un `500 Internal Server Error` au lieu du `403 Forbidden` attendu.
 
-**Solution :** Ajout de `LEFT JOIN FETCH a.category LEFT JOIN FETCH a.author` dans toutes les requêtes de listing (listerPubliees, listerParAuteur, rechercher). Résultat : une seule requête SQL, quel que soit le nombre de résultats.
-
----
-
-### 3. Conflits de clés primaires avec H2 en mode test
-
-**Problème :** Les tests d'intégration (`AnnonceRepositoryIT`) échouaient avec `Unique index or primary key violation` lors de l'insertion de nouvelles annonces. Le fichier `test-data.sql` insérait des données avec des IDs explicites (1 à 7), mais la stratégie `@GeneratedValue(strategy = GenerationType.IDENTITY)` avec H2 démarrait son compteur auto-incrémenté à 1. Le premier `save()` dans un test générait donc l'ID 1, qui existait déjà.
-
-**Solution :** Ajouter à la fin de `test-data.sql` des instructions pour repositionner les séquences d'auto-incrémentation après le dernier ID utilisé :
-```sql
-ALTER TABLE users ALTER COLUMN id RESTART WITH 100;
-ALTER TABLE categories ALTER COLUMN id RESTART WITH 100;
-ALTER TABLE annonces ALTER COLUMN id RESTART WITH 100;
-```
-
----
-
-### 4. Pagination non déterministe - Doublons entre les pages
-
-**Problème :** Le test `testPaginationNoDuplicates` échouait de manière intermittente : un même ID apparaissait dans la page 0 et la page 1. La cause : toutes les annonces du jeu de test avaient le même `CURRENT_TIMESTAMP` en `date_creation`, et le tri `ORDER BY a.date DESC` ne garantissait aucun ordre entre les lignes de même date. La base de données renvoyait les résultats dans un ordre arbitraire qui pouvait changer entre deux requêtes.
-
-**Solution :** Ajouter un critère de tri secondaire déterministe (l'ID, qui est unique et immuable) :
+**Solution :** Ajouter un handler dédié dans le `GlobalExceptionHandler` :
 ```java
-ORDER BY a.date DESC, a.id DESC
-```
-
----
-
-### 5. Injection de mocks impossible dans AnnonceResource (tests unitaires)
-
-**Problème :** `AnnonceResourceTest` utilisait `@InjectMocks` avec Mockito, mais le champ `annonceService` dans `AnnonceResource` était déclaré `private final AnnonceService annonceService = new AnnonceService()`. Mockito ne pouvait pas remplacer un champ `final` initialisé inline. Résultat : les tests appelaient le vrai service (qui tentait de se connecter à la base) au lieu du mock, provoquant des `ForbiddenException` et des échecs systématiques.
-
-**Solution :** Ajouter un constructeur package-private qui accepte le service en paramètre, et rendre le champ non-final :
-```java
-private AnnonceService annonceService;
-
-public AnnonceResource() {
-    this.annonceService = new AnnonceService();
-}
-
-AnnonceResource(AnnonceService annonceService) {
-    this.annonceService = annonceService;
-}
-```
-Le test utilise le constructeur avec paramètre pour injecter le mock, tandis que JAX-RS utilise le constructeur par défaut en production. Le `@Context ContainerRequestContext` est injecté via réflexion dans le test.
-
----
-
-### 6. Detached Entity - Entité détachée passée à persist
-
-**Problème :** On récupérait l'auteur et la catégorie dans une première transaction, puis on essayait de les associer à l'annonce dans une seconde. Hibernate renvoyait `PersistenceException: detached entity passed to persist` parce que les entités n'étaient plus rattachées à un EntityManager actif.
-
-**Solution :** Tout faire dans la même transaction pour que les entités restent managées :
-```java
-return executeInTransaction(em, entityManager -> {
-    User author = entityManager.find(User.class, authorId);
-    Category category = entityManager.find(Category.class, categoryId);
-    annonce.setAuthor(author);
-    annonce.setCategory(category);
-    entityManager.persist(annonce);
-    return annonce;
-});
-```
-
----
-
-### 7. Transaction non active en mode RESOURCE_LOCAL
-
-**Problème :** Les `em.persist()` effectués sans `tx.begin()` / `tx.commit()` ne provoquaient aucune erreur, mais les données n'étaient jamais écrites en base. En mode `RESOURCE_LOCAL` (hors serveur d'application), JPA ne démarre pas de transaction automatiquement. C'est un bug silencieux très difficile à diagnostiquer.
-
-**Solution :** Centralisation du begin/commit/rollback dans `AbstractService.executeInTransaction()` pour ne jamais oublier. Pattern `try-catch-finally` avec rollback automatique en cas d'exception et fermeture garantie de l'EntityManager.
-
----
-
-### 8. Fuite de connexions - EntityManager non fermé
-
-**Problème :** Certains chemins d'exécution (notamment en cas d'exception) ne fermaient pas l'EntityManager. Le pool de connexions Hibernate (5 par défaut) s'épuisait après quelques requêtes, bloquant complètement l'application sans message d'erreur explicite.
-
-**Solution :** Bloc `try-finally` systématique dans chaque méthode de service et de repository :
-```java
-EntityManager em = getEntityManager();
-try {
-    // ... opérations
-} finally {
-    em.close();
+@ExceptionHandler(AccessDeniedException.class)
+public ResponseEntity<ApiError> handleAccessDenied(AccessDeniedException ex) {
+    return ResponseEntity.status(HttpStatus.FORBIDDEN)
+        .body(new ApiError(403, "Forbidden", ex.getMessage()));
 }
 ```
 
 ---
 
-### 9. Incompatibilité de version Java entre compilation et exécution des tests
+#### 3. MapStruct générait du bytecode incompatible avec Java 17
 
-**Problème :** Le pom.xml ciblait Java 22 (`maven.compiler.source/target = 22`) mais le JDK installé localement était Java 18. La compilation Maven fonctionnait, mais le lanceur de tests Surefire échouait avec : `has been compiled by a more recent version of the Java Runtime (class file version 66.0), this version only recognizes class file versions up to 62.0`.
+**Problème :** Le projet utilise MapStruct pour la conversion Entity/DTO. L'annotation processor de MapStruct générait des classes compilées avec la version de bytecode par défaut du compilateur, qui pouvait ne pas correspondre à Java 17. Les tests échouaient avec `UnsupportedClassVersionError` sur les classes générées par MapStruct.
 
-**Solution :** Aligner la version dans `pom.xml` avec le JDK réellement installé :
+**Solution :** Remplacer `<maven.compiler.source>` / `<maven.compiler.target>` par la propriété `<release>17</release>` dans le pom.xml. La propriété `release` force le compilateur à produire du bytecode compatible avec la version spécifiée, y compris pour les classes générées par les annotation processors :
 ```xml
-<maven.compiler.target>18</maven.compiler.target>
-<maven.compiler.source>18</maven.compiler.source>
+<properties>
+    <maven.compiler.release>17</maven.compiler.release>
+</properties>
 ```
+
+---
+
+#### 4. Exécution de Maven sur Windows avec Git Bash
+
+**Problème :** La commande `mvn` n'était pas trouvée dans le PATH, et `mvnw.cmd` lancé via `cmd.exe` ne produisait aucune sortie exploitable. Le wrapper Maven `mvnw` est un script shell qui ne s'exécute pas nativement sous Windows sans configuration spécifique du shell.
+
+**Solution :** Exécuter le wrapper Maven via `bash mvnw` dans Git Bash, avec un export explicite de `JAVA_HOME` au format Unix :
+```bash
+export JAVA_HOME="/c/Program Files/Java/jdk-18.0.2.1"
+bash mvnw clean verify
+```
+Le format `/c/Program Files/...` (au lieu de `C:\Program Files\...`) est nécessaire pour que bash interprète correctement le chemin.
+
+---
+
+#### 5. Testcontainers ne détectait pas Docker sur Windows
+
+**Problème :** En local sous Windows, Testcontainers ne parvenait pas à détecter Docker Desktop. La JVM forkée par Maven Surefire/Failsafe n'héritait pas toujours des variables d'environnement Docker (`DOCKER_HOST`, pipes nommés Windows). Résultat : les tests d'intégration échouaient car le conteneur PostgreSQL ne pouvait pas démarrer.
+
+**Solution :** Mise en place d'un mécanisme de fallback automatique dans `TestcontainersConfig` :
+```java
+private static final boolean DOCKER_AVAILABLE = isDockerAvailable();
+
+private static boolean isDockerAvailable() {
+    try {
+        DockerClientFactory.instance().client();
+        return true;
+    } catch (Exception e) {
+        return false;
+    }
+}
+```
+Si Docker n'est pas disponible, les tests utilisent automatiquement H2 en mémoire comme base de données de test. En CI (GitHub Actions), Docker est toujours disponible donc Testcontainers utilise un vrai PostgreSQL.
+
+---
+
+#### 6. JaCoCo ne capturait pas la couverture des tests d'intégration
+
+**Problème :** Le rapport SonarQube affichait seulement **30.3% de couverture** alors que le projet contenait 67 tests (43 unitaires + 24 d'intégration). La cause : JaCoCo ne capturait que la couverture des tests unitaires (Surefire). Les tests d'intégration exécutés par Failsafe (`*IT.java`) n'étaient pas instrumentés, donc les 24 tests qui couvraient les controllers, la sécurité, les mappers et les exception handlers ne comptaient pas.
+
+**Solution :** Configurer JaCoCo avec 3 goals supplémentaires :
+1. `prepare-agent-integration` : instrumente la JVM de Failsafe (génère `jacoco-it.exec`)
+2. `merge` : fusionne `jacoco.exec` (unitaires) et `jacoco-it.exec` (intégration) en `jacoco-merged.exec`
+3. `report` : génère le rapport HTML à partir du fichier fusionné
+
+```xml
+<execution>
+    <id>merge-results</id>
+    <phase>verify</phase>
+    <goals><goal>merge</goal></goals>
+    <configuration>
+        <fileSets>
+            <fileSet>
+                <directory>${project.build.directory}</directory>
+                <includes>
+                    <include>jacoco.exec</include>
+                    <include>jacoco-it.exec</include>
+                </includes>
+            </fileSet>
+        </fileSets>
+        <destFile>${project.build.directory}/jacoco-merged.exec</destFile>
+    </configuration>
+</execution>
+```
+Impact : la couverture est passée immédiatement de 30.3% à 80.8%, puis à **89.8%** après l'ajout de tests unitaires supplémentaires.
+
+---
+
+#### 7. SonarQube : 18 code smells à corriger
+
+**Problème :** L'analyse SonarQube initiale a détecté 18 code smells. Les plus notables :
+- **S2139** (LoggingAspect) : log d'une exception puis re-throw (`catch` + `log.error(ex)` + `throw ex`). C'est un antipattern car l'exception sera logguée une deuxième fois plus haut dans la stack.
+- **S1192** (AnnonceService) : la chaîne `"Annonce"` était dupliquée 5 fois.
+- **S1710** (Controllers) : `@ApiResponses({@ApiResponse(...)})` au lieu de l'annotation répétable `@ApiResponse` directement.
+- **S4144** (AnnonceController) : les méthodes `update()` et `patch()` avaient un corps identique.
+- **S1168** (Mappers) : retourner `null` au lieu d'une collection vide.
+
+**Solutions :**
+- **S2139** : Remplacer le bloc `catch/log/rethrow` par un `finally` avec un flag `boolean success` :
+```java
+boolean success = false;
+try {
+    Object result = joinPoint.proceed();
+    success = true;
+    return result;
+} finally {
+    if (!success) {
+        log.warn("[ERROR] {}.{} - exception thrown", className, methodName);
+    }
+}
+```
+- **S1192** : Extraction d'une constante `private static final String ENTITY_ANNONCE = "Annonce";`
+- **S1710** : Suppression du wrapper `@ApiResponses({...})` et utilisation directe de `@ApiResponse` (annotation répétable depuis Swagger 2.x)
+- **S4144** : Extraction d'une méthode privée `applyUpdate()` appelée par `update()` et `patch()`
+- **S1168** : `return Collections.emptyMap()` au lieu de `return null`
+
+Résultat final : **0 bugs, 0 vulnerabilities, 0 code smells**.
 
 ---
 

@@ -32,6 +32,9 @@ public class User {
     @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false, length = 20)
+    private String role = "ROLE_USER";
+
     @Column(name = "created_at")
     private Timestamp createdAt;
 
@@ -85,6 +88,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Timestamp getCreatedAt() {

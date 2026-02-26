@@ -1,0 +1,58 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: master-annonce
+
+  datasource:
+    url: jdbc:postgresql://localhost:5433/masterannonce
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    open-in-view: false
+
+jwt:
+  secret: MasterAnnonceSecretKeyForJWT2025QDevTP04SpringBootSecurityDemo
+  expiration: 86400000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
+  info:
+    env:
+      enabled: true
+  health:
+    db:
+      enabled: true
+
+info:
+  app:
+    name: MasterAnnonce
+    description: API de gestion d'annonces - TP04 Spring Boot
+    version: 1.0.0
+    java-version: ${java.version}
+
+logging:
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] [%X{correlationId:-no-corr}] %-5level %logger{36} - %msg%n"
+  level:
+    org.univ_paris8: DEBUG
+    org.hibernate.SQL: WARN
+    org.hibernate: WARN
+    org.springframework.security: DEBUG
